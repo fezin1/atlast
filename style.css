@@ -1,0 +1,381 @@
+:root{
+  --bg:#0f1720;
+  --card:#0b1220;
+  --muted:#9aa7b2;
+  --accent:#ffb86b;
+  --white:#eef6ff;
+  --glass: rgba(255,255,255,0.03);
+  --maxWidth:1100px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#071027 0%, var(--bg) 100%); color:var(--white); -webkit-font-smoothing:antialiased;}
+.container{max-width:var(--maxWidth);margin:0 auto;padding:20px;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.logo a{color:var(--accent);text-decoration:none;font-weight:700;font-size:1.15rem;}
+.site-header{border-bottom:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px);position:sticky;top:0;z-index:40;padding:10px 0;background:linear-gradient(180deg, rgba(6,10,20,0.75), rgba(6,10,20,0.35));}
+
+.main-nav a{color:var(--white);text-decoration:none;margin-left:14px;padding:8px;border-radius:6px;transition:all .18s}
+.main-nav a:hover{background:var(--glass);color:var(--accent)}
+
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:24px 0;margin-top:24px;color:var(--muted);font-size:.92rem;text-align:center}
+
+/* Page containers */
+.hero{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  padding:36px;
+  margin:18px 0 30px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+}
+.hero h2{margin:0;font-size:1.9rem;color:var(--accent)}
+.hero p{margin:0;color:var(--muted);line-height:1.6}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+
+/* cards */
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:16px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);
+  transition:transform .18s, box-shadow .18s;
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+
+.card h3{margin:0 0 8px;color:var(--accent);font-size:1.05rem}
+.card p{margin:0;color:var(--muted);line-height:1.45;font-size:.95rem}
+
+/* problem list */
+.problem-list { margin-top:8px; }
+.problem-item{ display:flex; gap:12px; align-items:flex-start; padding:12px; border-radius:8px; background:rgba(255,255,255,0.01); border:1px solid rgba(255,255,255,0.02); transition:all .12s}
+.problem-item:hover{transform:translateY(-4px)}
+.problem-meta{font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,0.02);color:var(--muted);font-size:.8rem;margin-right:6px}
+
+/* problem detail */
+.problem-body{white-space:pre-wrap;line-height:1.6;margin-top:12px;color:#e6f0ff}
+.solution{margin-top:18px;background:rgba(255,255,255,0.02);padding:14px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+
+/* search area */
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.input{padding:8px 10px;border-radius:8px;background:#071826;border:1px solid rgba(255,255,255,0.02);color:var(--white);min-width:220px}
+
+/* weekly challenge */
+.weekly-hero{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.03)}
+.weekly-hero p{color:var(--muted);margin:0}
+
+/* footer small */
+.small{font-size:.88rem;color:var(--muted)}
+
+/* responsiveness */
+@media (max-width:720px){
+  .header-inner{padding:0 6px}
+  .main-nav{display:none}
+}
+
+.comment {
+  padding: 12px;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.comment-meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* Better formatting for strategy content */
+.strategy-content h3 {
+  color: var(--accent);
+  margin: 16px 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.strategy-content ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.strategy-content li {
+  margin: 4px 0;
+  line-height: 1.5;
+}
+
+.strategy-content br + br {
+  margin-bottom: 8px;
+}
+
+/* Update the strategy card display */
+.card .problem-body {
+  line-height: 1.6;
+  white-space: normal;
+}
+
+/* Strategies specific styles */
+details.solution {
+  margin-top: 12px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+details.solution summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+details.solution div {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.markdown-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9em;
+}
+
+.markdown-table th,
+.markdown-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.markdown-table th {
+  background-color: rgba(255,255,255,0.05);
+  font-weight: 600;
+}
+
+.markdown-table tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.02);
+}
+
+/* Modal Styles - FIXED */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay for better contrast */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(2px); /* Optional: slight blur effect */
+}
+
+.modal {
+  background: #fff; /* Solid white background */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid #e0e0e0; /* Adds definition */
+}
+
+.modal-content {
+  padding: 2.5rem;
+  position: relative;
+  background: #fff; /* Ensure content area is solid white */
+  border-radius: 12px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: bold;
+  color: #666;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-modal:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-buttons .btn {
+  flex: 1;
+  padding: 0.875rem;
+  font-weight: 600;
+}
+
+.modal h3 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Fix for input field text visibility */
+.modal .input {
+  width: 100%;
+  margin-bottom: 1.25rem;
+  padding: 0.875rem;
+  box-sizing: border-box;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff !important; /* Solid white background */
+  color: #000 !important; /* Solid black text - FIXES THE ISSUE */
+  transition: border-color 0.3s ease;
+}
+
+/* Placeholder text color */
+.modal .input::placeholder {
+  color: #666 !important; /* Dark gray placeholder */
+  opacity: 1; /* Ensure full opacity */
+}
+
+/* Focus states */
+.modal .input:focus {
+  outline: none;
+  border-color: var(--primary, #007bff);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  background: #fff !important;
+  color: #000 !important; /* Keep text black on focus */
+}
+
+/* Ensure text remains visible in all states */
+.modal .input:hover {
+  color: #000 !important;
+  background: #f8f9fa !important;
+}
+
+/* Remove any inherited transparency */
+.modal input,
+.modal input[type="email"],
+.modal input[type="password"] {
+  background: #fff !important;
+  color: #000 !important;
+  -webkit-text-fill-color: #000 !important; /* For Safari */
+}
+
+/* Ensure good contrast and readability */
+.modal {
+  color: #333; /* Dark text for good contrast */
+  font-family: inherit;
+}
+
+/* Optional: Add some spacing improvements */
+.modal-content > * {
+  margin-bottom: 1rem;
+}
+
+.modal-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Animation */
+.modal-overlay {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Ensure auth button is properly positioned in header */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#auth-button {
+  margin-left: auto; /* Pushes button to the right */
+  margin-right: 1rem; /* Adds some spacing */
+}
+
+/* Alternative if header-inner uses different layout */
+.header-inner {
+  display: flex;
+  align-items: center;
+}
+
+#auth-button {
+  order: 2; /* Makes it appear after nav items */
+  margin-left: 2rem; /* Adds spacing from nav items */
+}
+
+/* Aesthetic animated gradient for the auth button */
+#auth-button {
+  position: relative; /* Required for positioning the gradient layer */
+  overflow: hidden;   /* Hides the gradient when it's outside the button's bounds */
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--white);
+  transition: color 0.5s ease; /* Smoothly transition the text color */
+  z-index: 1; /* Ensures text stays on top of the gradient */
+}
+
+/* This is the gradient layer that will animate */
+#auth-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(110deg, var(--accent), #ff7e5f, var(--accent));
+  background-size: 200% 100%; /* Makes the gradient larger than the button */
+  transform: translateX(-100%); /* Hides the gradient to the left */
+  transition: transform 0.5s ease; /* Animation for the sweep effect */
+  z-index: -1; /* Places the gradient behind the text */
+}
+
+/* This triggers the animation on hover */
+#auth-button:hover::before {
+  transform: translateX(0); /* Slides the gradient into view */
+}
+
+/* On hover, change the text color for better contrast */
+#auth-button:hover {
+  color: var(--bg);
+}

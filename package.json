@@ -1,0 +1,20 @@
+{
+  "name": "imo-resource",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "node scripts/generate-json.js",
+    "dev": "node scripts/generate-json.js && live-server .",
+    "start": "node scripts/generate-json.js && live-server ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

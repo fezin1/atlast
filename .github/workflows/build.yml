@@ -1,0 +1,52 @@
+name: Build Content JSON
+on:
+  push:
+    paths:
+      - 'content/**'
+      - 'scripts/**'
+  pull_request:
+    paths:
+      - 'content/**'
+      - 'scripts/**'
+
+jobs:
+  build-content:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate JSON from content
+        run: npm run build
+        
+      - name: Check for changes
+        id: check_changes
+        run: |
+          git add data/data.json
+          if git diff --staged --quiet; then
+            echo "changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "changes=true" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.changes == 'true'
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git commit -m "chore: auto-update data.json from content changes"
+          git push

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IMO Resources — Problems, Strategies & Weekly Challenges</title>
+  <meta name="description" content="Free IMO resources: problems, strategies, and weekly challenges for aspiring mathematicians." />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase scripts in head are fine -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo"><a href="#/">IMO Resources</a></h1>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#/">Home</a>
+        <a href="#/problems">Problems</a>
+        <a href="#/strategies">Strategies</a>
+        <a href="#/weekly">Weekly</a>
+        <a href="#/about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="container">
+    <!-- content injected by app.js -->
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> IMO Resources — Free for aspirants worldwide • Built with ❤️</p>
+      <p>Want to contribute? Open a PR on <a href="https://github.com/YOUR-USERNAME/YOUR-REPO" target="_blank" rel="noopener">GitHub</a>.</p>
+    </div>
+  </footer>
+
+  <!-- Load app.js first -->
+  <script src="app.js" defer></script>
+
+  <!-- Then load and configure MathJax AFTER your content is injected -->
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]  // For block equations
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
