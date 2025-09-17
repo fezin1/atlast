@@ -6,16 +6,6 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 let PROBLEMS = []; // will load from JSON
 let currentUser = null;
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "REMOVED",
-  authDomain: "imo-resource.firebaseapp.com",
-  projectId: "imo-resource",
-  storageBucket: "imo-resource.firebasestorage.app",
-  messagingSenderId: "813525356997",
-  appId: "1:813525356997:web:a9ec854bc77af749cdfbac",
-  measurementId: "G-RBGJ11ZF2D"
-};
 
 // Initialize Firebase (check if Firebase is available)
 let db, auth;
